@@ -166,13 +166,12 @@ def about(request):
 ```
 
 
-
 </details>
 
 ---
 
 <details>
-<summary> 6. API-ийг үүсгэх </summary>
+<summary> 6. ____________</summary>
 Жишээ нь:
 
 
@@ -303,7 +302,7 @@ async function deletePost(req, res) {
 ---
 
 <details>
-<summary> API -ийг тестлэх </summary>
+<summary> ________________ </summary>
 
 Тухайн сайт нь өгөглийн баазтай зөв холбосон бол дараах холбоосоор орж шалгах ажиллаж байгаа эсэхийг нь шалгаж үзээрэй.
 Үүгийг веб броузерээс бол зөвхөн get-ээр дуудан ажиллуулах боломжтой байдаг. 
@@ -324,7 +323,7 @@ http://localhost:3000/api/words
 
 
 <details>
-<summary> Redux-ийг холбох </summary>
+<summary> ____________________ </summary>
 
 Үндсэн фолдер дотор redux фолдер бүхий агуулгуудыг үүсгэж холбох
 
@@ -370,7 +369,7 @@ export default wrapper.withRedux(MyApp);
 
 ---
 <details>
-<summary> redux фолдер дотор words-ийг холбож оруулж ирэх </summary>
+<summary> ______________ </summary>
 
 redux фолдер дотор words фолдерийг үүсгэж дотор нь дараах 3 файлыг үүсгэнэ.
 * actions.js
@@ -501,7 +500,7 @@ export default WordsReducer;
 
 
 <details>
-<summary> Layout үүсгэх </summary>
+<summary>  _____________ </summary>
 
 Үндсэн фолдер дотор **/components/layouts/MainLayout.js**  -ийг үүсгэх
 Энэ нь тухайн хуудасны гадна талаар тойрон байрлах учир энэ хуудсан дэээр голдуу үндсэн цэс болон хуудас бүр дээр байдаг агуулгуудыг оруулах нь тохиромжтой байдаг.
@@ -584,7 +583,7 @@ export default MainLayout
 
 
 <details>
-<summary> pages/allwords.js файлыг үүсгэх </summary>
+<summary> ____________________ </summary>
 
 Энэ нь уг веб броузерийн мөрөн дээр http://localhost:3000/words гэж ажиллуулахад дуудагдахан ажиллах үүрэгтэй
 Мөн энэ хуудсыг дуудахад гадна талаараа өмнөх алхамд үүсгэсэн MainLayout -ийг дуудаж ажиллуулахаар тохиргоог давхар хийж үзье.
@@ -667,7 +666,7 @@ export default allwords
 ---
 
 <details>
-<summary> API-ийг нэмж оруулна </summary>
+<summary> ____________________ </summary>
 
 pages/api фолдер дотор 
 
@@ -682,7 +681,7 @@ pages/api/dwords/[id].js
 
 ---
 <details>
-<summary> redux-ийг үүсгэх </summary>
+<summary> ____________________________ </summary>
 
 redux фолдер дотор өөрийн үүсгэх redux -ийн нэр бүхийх фолдерийг үүсгэнэ
 
@@ -802,7 +801,7 @@ export {getAllDWords, addDWord,editDWord , delDWord};
 
 ---
 <details>
-<summary> Үүсгэсэн redux-ийг rootReducer-тэй холбох </summary>
+<summary> _______________________</summary>
 
 ????
 
@@ -823,7 +822,7 @@ export default combineReducers({
 
 ---
 <details>
-<summary> redux-ийг дуудаж ажиллуулахдаа </summary>
+<summary> __________________ </summary>
 
 ????
 
