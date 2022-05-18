@@ -92,89 +92,80 @@ python manage.py startapp <app_name>
 **Жишээ нь : **
 
 ```
-python manage.py startapp main_app
+python manage.py startapp main
 ```
 
 **Прожектийг нэгтгэх**
+
 Дараах командын тусламжтайгаар прожектод хийгдсэн өөрчлөлтийг, гол төлөв өгөгдлийн бааз дээр хийгдсэн өөрчлөлт болон моделийг өөрчлөн хадгалах боломжтой.
 
 ```
-python manage.py migrate
+python manage.py makemigrations main
 ```
 
 Бааз руу хадгалах нэгтгэх 
 
-```
-python manage.py migrate
-```
+
+
+
 
 </details>
 
 ---
 
 <details>
-<summary> 5. MongoDb -тэй холбогдох файл </summary>
+<summary> 5. Прожектоо app-тай холбох </summary>
 
-Үндсэн фолдер дотор utils/connectDb.js файл үүсгэнэ.
-
-```
-utils/connectDb.js
-```
-
-**Файлын доторх агуулга:**
-```
-
-import { MongoClient } from 'mongodb';
-
-const MONGODB_URI = process.env.MONGODB_URI;
-const MONGODB_DB = process.env.DB_NAME;
-
-// check the MongoDB URI
-if (!MONGODB_URI) {
-    throw new Error('Define the MONGODB_URI environmental variable');
-}
-
-// check the MongoDB DB
-if (!MONGODB_DB) {
-    throw new Error('Define the MONGODB_DB environmental variable');
-}
-
-let cachedClient = null;
-let cachedDb = null;
-
-export async function connectToDatabase() {
-    // check the cached.
-    if (cachedClient && cachedDb) {
-        // load from cache
-        return {
-            client: cachedClient,
-            db: cachedDb,
-        };
-    }
-
-    // set the connection options
-    const opts = {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-    };
-
-    // Connect to cluster
-    let client = new MongoClient(MONGODB_URI, opts);
-    await client.connect();
-    let db = client.db(MONGODB_DB);
-
-    // set cache
-    cachedClient = client;
-    cachedDb = db;
-
-    return {
-        client: cachedClient,
-        db: cachedDb,
-    };
-}
-
+<proj_name> фолдер дотор байгаа **urls** дотор дараах байдлаар үндсэн app-ийн urls-ийг холбож өгнө.
 
 ```
+path('', include('main.urls')),
+```
+
+
+**Жишээ нь:**
+
+```
+from django.contrib import admin
+from django.urls import include, path
+
+urlpatterns = [
+    path('', include('main.urls')), # main will be the name of your app
+    path('admin/', admin.site.urls),
+]
+```
+
+Мөн үндсэн app-ийн **urls** дотор view-ийг дуудах холбоосыг холбоосыг оруулж болно.
+
+```
+from django.urls import path
+
+from . import views
+
+urlpatterns = [
+    path('', views.index, name='index'),
+    path('about', views.about, name='about'),
+]
+
+```
+app-ийн views файл дотор view буюу харагдацуудыг дуудах холбоосыг оруулж өгнө.
+
+**Жшиээ нь:**
+
+```
+# views.py file
+from django.http import HttpResponse
+
+
+def index(request):
+    return HttpResponse("<div>Энэ бол миний анхны сайт юм!</div>")
+
+def about(request):
+    return HttpResponse("<div> Энэ бол about хуудас</div>")
+
+```
+
+
 
 </details>
 
